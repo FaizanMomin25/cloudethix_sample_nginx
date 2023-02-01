@@ -2,8 +2,8 @@ pipeline {
     agent any 
     environment {
         registryURI = "https://registry.hub.docker.com/"
-        registry = "teamcloudethix/cloudethix-sample-nginx"
-        registryCredential = '02_docker_hub_creds'
+        registry = "faizanmomin2508/cloudethix_sample_nginx"
+        registryCredential = '02_docker_hub_user'
         }
 stages {
         stage('Building image from project dir') {
@@ -14,7 +14,8 @@ stages {
             steps{
                 script {
                 def app = docker.build(tag_commit_id)
-                docker.withRegistry( registry_endpoint, registryCredential ) {
+                docker.withRegistry( registry_endpoint, registryCredential ) 
+                {
                         app.push()
                 }
             }
