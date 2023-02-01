@@ -21,20 +21,6 @@ pipeline {
                 }
             }
         }
-/*        stage('Deploy Image') {
-            environment {
-                registry_endpoint = "${env.registryURI}" + "${env.registry}"
-            }
-            steps{
-                script {
-                    docker.withRegistry( registry_endpoint, registryCredential ) {
-                        app.push()
-                        app.push(latest)
-                    }
-                }
-            }
-}
-*/
         stage('Remove Unused docker image') {
             steps {
                 sh "docker rmi $registry:$GIT_COMMIT"
