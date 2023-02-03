@@ -1,5 +1,5 @@
-@Library('shared-library@master') _
+@Library('shared-library@master')
 
-DockerDeliveryPipeline {
+DockerDeliveryPromotionPipeline{
     platform = 'docker_shared_lib'
 }
